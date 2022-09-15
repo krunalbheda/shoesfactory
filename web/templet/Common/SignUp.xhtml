@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+     <link href="../templet/Resources/js/script.js" rel="stylesheet" />
+     <link href="../templet/Resources/lib/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link href="../templet/templet/Resources/lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
+    <link href="../templet/Resources/lib/typicons.font/typicons.css" rel="stylesheet" />
+    <link href="../templet/Resources/lib/flag-icon-css/css/flag-icon.min.css" rel="stylesheet" />
+     <link href="../templet/Resources/lib/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link href="../templet/Resources/lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
+    <link href="../templet/Resources/lib/typicons.font/typicons.css" rel="stylesheet" />
+    <link href="../templet/Resources/lib/spectrum-colorpicker/spectrum.css" rel="stylesheet" />
+    <link href="../templet/Resources/lib/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="../templet/Resources/lib/ion-rangeslider/css/ion.rangeSlider.css" rel="stylesheet" />
+    <link href="../templet/Resources/lib/ion-rangeslider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet" />
+    <link href="../templet/Resources/lib/amazeui-datetimepicker/css/amazeui.datetimepicker.css" rel="stylesheet" />
+    <link href="../templet/Resources/lib/jquery-simple-datetimepicker/jquery.simple-dtpicker.css" rel="stylesheet" />
+    <link href="../templet/Resources/lib/pickerjs/picker.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../templet/Resources/css/azia.css" />
+        <style>
+   body {
+  background-image: url('../Resources/img/bgg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+  background-position: 50% 50%; 
+}         
+            
+            </style>
+
+    </h:head>
+    <h:body>
+          
+   <ui:insert name = "header" >
+      <ui:include src = "header.xhtml" />
+   </ui:insert> 
+        
+        
+        <div class="az-signup-wrapper">
+      <div class="az-column-signup-left">
+        <div>
+<!--          <i class="typcn typcn-chart-bar-outline"></i>-->
+          <img src="../Resources/img/logo.png" height="100" width="100"/>
+          <h1 class="az-logo">ShoesFactory</h1>
+          <h5> Welcome to the Our Shoes  World</h5>
+          <p>We are excited to launch our new company and product Azia. After being featured in too many magazines to mention and having created an online stir, we know that BootstrapDash is going to be big. We also hope to win Startup Fictional Business of the Year this year.</p>
+          <p>Browse our site and see for yourself why you need Azia.</p>
+          <a href="index.xhtml" class="btn btn-outline-indigo">Learn More</a>
+        </div>
+      </div><!-- az-column-signup-left -->
+      <div class="az-column-signup">
+        <h1 class="az-logo">ShoesFactory</h1>
+        <div class="az-signup-header">
+          <h2>Get Started</h2>
+          <h4>It's free to signup and only takes a minute.</h4>
+
+           <h:form id="form">
+              
+            <div class="form-group">
+                <label>Firstname :</label>&nbsp;
+                 <h:inputText id="fname"  value="#{usersJSFManagedBean.ufname}"/>
+            </div><!-- form-group -->
+            <div class="form-group">
+              <label>Lastname :</label>&nbsp;
+               <h:inputText id="lname"  value="#{usersJSFManagedBean.ulname}"/>
+            </div><!-- form-group -->
+            <div class="form-group">
+                <label>Email :</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <h:inputText id="email"  value="#{usersJSFManagedBean.email}"/>
+            </div><!-- form-group -->
+            <div class="form-group">
+              <label>Password :</label>&nbsp;&nbsp;
+                <h:inputSecret id="password"  value="#{usersJSFManagedBean.password}"/>
+            </div><!-- form-group -->
+            <div class="form-group">
+              <label>Re-Pass :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <h:inputSecret  id="repassword"  value=""/>
+               
+            </div>
+<!--            <div class="row row-sm">
+                   <h:outputLabel for="">Role</h:outputLabel>
+                    <div class="col-lg">
+                   <h:selectOneMenu value="{usersJSFManagedBean.rid}">
+                       <f:selectItems value="{usersJSFManagedBean.showRoles()}" var="role" itemValue="" itemLabel="Customer"/> 
+                   </h:selectOneMenu>
+                  </div> col 
+              </div>-->
+                     <h:commandButton class="btn btn-az-primary btn-block" id="btn_insert"  action="#{usersJSFManagedBean.insertuser()}" value="Sign In"/>&nbsp;
+
+ <!--<h:commandButton class="btn btn-az-primary btn-block" id="btn_insert"  action="#{usersJSFManagedBean.insertuser()}" value="Create Account"/>&nbsp;-->
+            <!--<button class="btn btn-az-primary btn-block"></button>-->
+            <div class="row row-xs">
+              <div class="col-sm-6"><button class="btn btn-block"><i class="fab fa-facebook-f"></i> Signup with Facebook</button></div>
+              <div class="col-sm-6 mg-t-10 mg-sm-t-0"><button class="btn btn-primary btn-block"><i class="fab fa-twitter"></i> Signup with Twitter</button></div>
+            </div><!-- row -->
+          </h:form>
+        </div><!-- az-signup-header -->
+        <div class="az-signup-footer">
+          <p>Already have an account? <a href="SignIn.xhtml">Sign In</a></p>
+        </div><!-- az-signin-footer -->
+      </div><!-- az-column-signup -->
+    </div><!-- az-signup-wrapper -->
+        
+        
+        
+        
+        
+    </h:body>
+</html>
+

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+      <h:form>
+
+                  <label>Search &nbsp;</label>
+                  <h:inputText value="#{sCJSFManagedBean.scname}" id="sf"></h:inputText>&nbsp;
+                  <h:commandButton value="search" class="btn btn-primary" action="#{sCJSFManagedBean.getsubcatname(sCJSFManagedBean.scname)}"></h:commandButton>
+                &nbsp;<br/>
+                <h:dataTable value="#{sCJSFManagedBean.listByName()}" var="item" class="table table-hover mg-b-0">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="subcategoryid"/>
+                        </f:facet>
+                        <h:outputText value="#{item.scId}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="subcategoryname"/>
+                        </f:facet>
+                        <h:outputText value="#{item.scName}"/>
+                    </h:column>
+                   
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Action"/>
+                        </f:facet>
+                        <h:commandButton class="btn btn-az-primary" value="Update" action="#{sCJSFManagedBean.editsc(item.scId)}"></h:commandButton>&nbsp;
+                        <h:commandButton class="btn btn-az-primary" value="Delete" action="#{sCJSFManagedBean.deletesc(item.scId)}"></h:commandButton>
+                    </h:column>
+                </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

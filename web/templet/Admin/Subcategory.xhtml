@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+         <ui:insert name = "header" >
+      <ui:include src = "header.xhtml" />
+   </ui:insert> 
+    
+    <div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
+      <div class="container">
+        <div class="az-content-left az-content-left-components">
+          <div class="component-item">
+              
+                 <ui:insert name = "header" >
+                   <ui:include src = "sidebar.xhtml" />
+              </ui:insert> 
+
+<!--            <label>Products</label>
+            <nav class="nav flex-column">
+              <a href="Brand.xhtml" class="nav-link">Brand</a>
+              <a href="Category.xhtml" class="nav-link">Category</a>
+              <a href="Subcategory.xhtml" class="nav-link">Subcategory</a>
+              <a href="Product.xhtml" class="nav-link">Product</a>
+            </nav>
+            <label>Customer</label>
+            <nav class="nav flex-column">
+              <a href="form-elements.html" class="nav-link">Users </a>
+            </nav>
+            <label>Role</label>
+            <nav class="nav flex-column">
+              <a href="chart-chartjs.html" class="nav-link">Roles</a>
+            </nav>
+
+            <label>Tables</label>
+            <nav class="nav flex-column">
+              <a href="table-basic.html" class="nav-link">Basic Tables</a>
+            </nav>-->
+          </div><!-- component-item -->
+
+        </div><!-- az-content-left -->
+       
+        
+        <div class="az-content-body pd-lg-l-40 d-flex flex-column">
+         
+            
+            
+         
+          <h2 class="az-content-title">Subcategory</h2>
+
+   
+     
+         
+         
+            <h:form>
+              
+                  
+                     <div class="row row-sm">
+                     Subcategory Name : 
+                          
+                    <div class="col-lg">     
+                    <h:inputText id="scname" value="#{sCJSFManagedBean.scname}" title="subcategoryName" required="true" requiredMessage="The subcategory Name field is required."/>
+                    </div><!-- col -->
+                 
+                
+                    
+               
+                <div class="col-lg">
+                <c:if test="#{sCJSFManagedBean.scid == 0}">
+                    <h:commandButton class="btn btn-az-primary" value="Insert" id="btnins" action="#{sCJSFManagedBean.insertsc()}" />
+                </c:if>
+                
+                <c:if test="#{sCJSFManagedBean.scid != 0}">
+                    <h:commandButton class="btn btn-az-primary" value="Update" id="btnupdate" action="#{sCJSFManagedBean.updatesc()}" />
+                </c:if>
+                </div><!-- col -->
+                <br/><br/><br/>
+                 </div><!-- row -->
+<!--                 <br class="">                
+            <label>Search &nbsp;</label>
+            <h:inputText value="#{usersJSFManagedBean.ufname}" id="sf"></h:inputText>&nbsp;
+            <h:commandButton value="search" class="btn btn-primary" action="#{usersJSFManagedBean.getuserfhname(usersJSFManagedBean.ufname)}"></h:commandButton>
+            &nbsp;<br/>
+            </br>-->
+                 <div class="card">
+                  <div class="table-responsive">
+                <h:dataTable value="#{sCJSFManagedBean.showsc()}" var="item" class="table table-hover mg-b-0">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="subcategoryid"/>
+                        </f:facet>
+                        <h:outputText value="#{item.scId}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="subcategoryname"/>
+                        </f:facet>
+                        <h:outputText value="#{item.scName}"/>
+                    </h:column>
+                   
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Action"/>
+                        </f:facet>
+                        <h:commandButton class="btn btn-az-primary" value="Update" action="#{sCJSFManagedBean.editsc(item.scId)}"></h:commandButton>&nbsp;
+                        <h:commandButton class="btn btn-az-primary" value="Delete" action="#{sCJSFManagedBean.deletesc(item.scId)}"></h:commandButton>
+                    </h:column>
+                </h:dataTable></div></div>
+            </h:form>
+       
+         </div><!-- az-content-body -->
+      </div><!-- container -->
+     </div><!-- az-content -->
+       
+    </h:body>
+</html>
+

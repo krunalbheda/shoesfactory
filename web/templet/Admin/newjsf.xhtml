@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="form" enctype="multipart/form-data">
+            
+           
+            <h:inputHidden id="pid" value="#{productJSFManagedBean.pid}"/>
+           
+                 <br/>
+                   <h:outputLabel for="">Brand</h:outputLabel>
+                   <h:selectOneMenu value="#{productJSFManagedBean.bid}">
+                       <f:selectItems value="#{productJSFManagedBean.showbrand()}" var="brand" itemValue="#{brand.BId}" itemLabel="#{brand.BName}"/> 
+                   </h:selectOneMenu>
+                    <br/>
+                   
+                    
+                 <br/>
+                   <h:outputLabel for="">Category</h:outputLabel>
+                   <h:selectOneMenu value="#{productJSFManagedBean.cid}">
+                       <f:selectItems value="#{productJSFManagedBean.showcategory()}" var="cat" itemValue="#{cat.CId}" itemLabel="#{cat.CName}"/> 
+                   </h:selectOneMenu> <br/>
+                     
+             
+
+             
+             <h:outputLabel for="">Subcategory</h:outputLabel>
+                   <h:selectOneMenu value="#{productJSFManagedBean.scid}">
+                       <f:selectItems value="#{productJSFManagedBean.showsubcategory()}" var="sc" itemValue="#{sc.scId}" itemLabel="#{sc.scName}"/> 
+                   </h:selectOneMenu>
+                   
+           <br/>
+                <h:outputLabel for=""> Product-Name : </h:outputLabel> 
+                <h:inputText id="pname"  value="#{productJSFManagedBean.pname}"/>
+                
+                <br/>
+                 <h:outputLabel for=""> Product-Desc : : </h:outputLabel> 
+                 <h:inputText id="pdesc"  value="#{productJSFManagedBean.pdesc}"/>
+                 
+                 <br/>
+               
+                 <br/>
+                 <h:outputLabel for=""> Price : </h:outputLabel> 
+                 <h:inputText id="price"  value="#{productJSFManagedBean.price}"/>
+                 
+                 <br/>
+                 <h:outputLabel for=""> image : </h:outputLabel> 
+                 <!--<h:graphicImage library="images" name="#{productJSFManagedBean.img}/>-->
+                 <h:inputFile id="image" value="#{productJSFManagedBean.uploadedFile}"/>
+              
+                <br/><br/>
+                
+                <h:commandButton  id="btn_insert"  action="#{productJSFManagedBean.insertproduct()}" value="insert"/>
+                <h:commandButton  id="btn_update"  action="#{productJSFManagedBean.updateproduct()}" value="update"/>
+
+           <h3>List Box</h3> 
+         <h:selectManyListbox value="#{productJSFManagedBean.bid}">
+            <f:selectItem itemValue = "1" itemLabel = "Item 1" />
+          
+         </h:selectManyListbox>
+                <h:dataTable value="#{productJSFManagedBean.showproduct()}" var="item" border="1">
+                  <h:column>
+                      <f:facet name="header"> Id</f:facet>
+                      #{item.PId}
+                  </h:column>
+                  
+                  <h:column>
+                      <f:facet name="header">Brand-Name </f:facet>
+                      #{item.BId.BName}
+                  </h:column>
+                    
+                    <h:column>
+                      <f:facet name="header">Cat-Name </f:facet>
+                      #{item.CId.CName}
+                  </h:column>
+                 
+                 <h:column>
+                      <f:facet name="header">Subcat-Name. </f:facet>
+                      #{item.scId.scName}
+                  </h:column>
+                    
+                    <h:column>
+                      <f:facet name="header">Product-name </f:facet>
+                      #{item.PName}
+                    </h:column> comment 
+                    
+                    <h:column>
+                      <f:facet name="header">Product-desc </f:facet>
+                      #{item.PDescription}
+                  </h:column>
+                    
+                      
+                 <h:column>
+                      <f:facet name="header">price </f:facet>
+                      #{item.price}
+                  </h:column>
+                    
+                    <h:column>
+                      <f:facet name="header">Img </f:facet>
+                      <!--<h:graphicImage library="images" class="rounded mr-3" height="40" width="50" name="#{item.image}"/>-->
+                      <img src="/shoesfactory/templet/Admin/uploads/#{item.image}" height="50" width="50"/>
+                  </h:column>
+                
+               
+                 
+                        <h:column>
+                           <f:facet name="header">Operation </f:facet>
+                           
+                           <h:commandButton id="btn_delete" action="#{productJSFManagedBean.deleteproduct(item.PId)}" value="delete"/>
+                           <h:commandButton id="btn_edit" action="#{productJSFManagedBean.editproduct(item.PId)}" value="edit"/>
+                         
+                          
+                       </h:column>
+                  
+              </h:dataTable>
+            <h3>List Box</h3>  
+        
+        
+            </h:form>    
+    </h:body>
+</html>
+

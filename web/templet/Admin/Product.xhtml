@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+         <meta name="description" content="Responsive Bootstrap 4 Dashboard Template" />
+
+    </h:head>
+    
+    <h:body>
+
+
+    
+   <ui:insert name = "header" >
+      <ui:include src = "header.xhtml" />
+   </ui:insert> 
+    
+    <div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
+      <div class="container">
+        <div class="az-content-left az-content-left-components">
+          <div class="component-item">
+              
+                 <ui:insert name = "header" >
+                   <ui:include src = "sidebar.xhtml" />
+              </ui:insert> 
+<!--        
+            <label>Products</label>
+            <nav class="nav flex-column">
+              <a href="Brand.xhtml" class="nav-link">Brand</a>
+              <a href="Category.xhtml" class="nav-link">Category</a>
+              <a href="Subcategory.xhtml" class="nav-link">Subcategory</a>
+              <a href="Product.xhtml" class="nav-link">Product</a>
+            </nav>
+            <label>Customer</label>
+            <nav class="nav flex-column">
+              <a href="User.xhtml" class="nav-link">Users </a>
+               <a href="Admin.xhtml" class="nav-link">Admin </a>
+            </nav>
+            <label>Role</label>
+            <nav class="nav flex-column">
+              <a href="Roles.xhtml" class="nav-link">Roles</a>
+            </nav>
+
+            <label>Tables</label>
+            <nav class="nav flex-column">
+              <a href="table-basic.html" class="nav-link">Basic Tables</a>
+            </nav>-->
+          </div><!-- component-item -->
+
+        </div><!-- az-content-left -->
+       
+        
+        <div class="az-content-body pd-lg-l-40 d-flex flex-column">
+         
+            
+            
+         
+          <h2 class="az-content-title">Product</h2>
+
+          
+ <h:form id="form" enctype="multipart/form-data">
+          
+          <div class="row row-sm">
+              <h:outputLabel for=""> Product-Name : </h:outputLabel> 
+              <div class="col-lg">
+                <h:inputText id="pname"  value="#{productJSFManagedBean.pname}"/>
+              </div><!-- col -->
+              </div>
+     
+              <div class="row row-sm">
+                <h:outputLabel for=""> Product-Desc : &nbsp; </h:outputLabel> 
+              <div class="col-lg">
+                 <h:inputText id="pdesc"  value="#{productJSFManagedBean.pdesc}"/>
+              </div><!-- col -->
+                </div>
+     
+            <div class="row row-sm">
+                <h:outputLabel for="">Brand :&nbsp;</h:outputLabel>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="col-lg">
+                   <h:selectOneMenu value="#{productJSFManagedBean.bid}">
+                       <f:selectItems value="#{productJSFManagedBean.showbrand()}" var="brand" itemValue="#{brand.BId}" itemLabel="#{brand.BName}"/> 
+                   </h:selectOneMenu>
+              </div><!-- col -->
+            </div>
+             
+     <div class="row row-sm">
+                <h:outputLabel for="">Category :&nbsp; </h:outputLabel>
+                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+
+              <div class="col-lg">
+              
+                   <h:selectOneMenu value="#{productJSFManagedBean.cid}">
+                       <f:selectItems value="#{productJSFManagedBean.showcategory()}" var="cat" itemValue="#{cat.CId}" itemLabel="#{cat.CName}"/> 
+                   </h:selectOneMenu>
+              </div><!-- col -->
+               </div>
+              
+              <div class="row row-sm">
+            <h:outputLabel for="">Subcategory : &nbsp;</h:outputLabel>&nbsp;&nbsp;
+              <div class="col-lg">
+            
+                   <h:selectOneMenu value="#{productJSFManagedBean.scid}">
+                       <f:selectItems value="#{productJSFManagedBean.showsubcategory()}" var="sc" itemValue="#{sc.scId}" itemLabel="#{sc.scName}"/> 
+                   </h:selectOneMenu>
+              </div><!-- col -->
+              </div>
+              
+              <div class="row row-sm">
+        <h:outputLabel for=""> Price : </h:outputLabel> &nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <div class="col-lg">
+                 <h:inputText id="price"  value="#{productJSFManagedBean.price}"/>
+              </div><!-- col -->
+               </div>
+              <br/>
+              <div class="row row-sm">
+               <h:outputLabel for=""> image : </h:outputLabel> 
+        <div class="col-lg">
+               <h:inputFile id="image" value="#{productJSFManagedBean.uploadedFile}"/>
+              </div><!-- col -->
+              </div>
+              <br/>
+              <div class="">
+                   <h:commandButton  class="btn btn-az-primary btn" id="btn_insert"  action="#{productJSFManagedBean.insertproduct()}" value="insert"/>&nbsp;
+                <h:commandButton class="btn btn-az-primary"  id="btn_update"  action="#{productJSFManagedBean.updateproduct()}" value="update"/>
+
+             <br/>
+              
+             <br /><br/>
+            
+          </div><!-- row -->
+<!--          <br class="">                
+            <label>Search &nbsp;</label>
+            <h:inputText value="#{productJSFManagedBean.pname}" id="sf"></h:inputText>&nbsp;
+            <h:commandButton value="search" class="btn btn-primary" action="#{productJSFManagedBean.getproducthname(productJSFManagedBean.pname)}"></h:commandButton>
+            &nbsp;<br/>
+            </br>-->
+          <div class="card">
+          <div class="table-responsive">
+              <h:dataTable value="#{productJSFManagedBean.showproduct()}" var="item" class="table table-hover mg-b-0">
+         <!--<h:dataTable value="#{productJSFManagedBean.listByName()}" var="item" class="table table-hover mg-b-0">-->
+
+                  <h:column>
+                      <f:facet name="header"> Id</f:facet>
+                      #{item.PId}
+                  </h:column>
+                  
+                  <h:column>
+                      <f:facet name="header">Brand-Name </f:facet>
+                      #{item.BId.BName}
+                  </h:column>
+                    
+                    <h:column>
+                      <f:facet name="header">Cat-Name </f:facet>
+                      #{item.CId.CName}
+                  </h:column>
+                 
+                 <h:column>
+                      <f:facet name="header">Subcat-Name. </f:facet>
+                      #{item.scId.scName}
+                  </h:column>
+                    
+                    <h:column>
+                      <f:facet name="header">Product-name </f:facet>
+                      #{item.PName}
+                    </h:column> comment 
+                    
+                    <h:column>
+                      <f:facet name="header">Product-desc </f:facet>
+                      #{item.PDescription}
+                  </h:column>
+                    
+                      
+                 <h:column>
+                      <f:facet name="header">price </f:facet>
+                      #{item.price}
+                  </h:column>
+                    
+                    <h:column>
+                      <f:facet name="header">Img </f:facet>
+                      <!--<h:graphicImage library="images" class="rounded mr-3" height="40" width="50" name="#{item.image}"/>-->
+                      <img src="/shoesfactory/templet/Admin/uploads/#{item.image}" height="50" width="50"/>
+                  </h:column>
+                    
+                      <h:column>
+                      <f:facet name="header">Delete </f:facet>
+                      <!--<h:graphicImage library="images" class="rounded mr-3" height="40" width="50" name="#{item.image}"/>-->
+                     <h:commandButton class="btn btn-az-primary" id="btn_delete" action="#{productJSFManagedBean.deleteproduct(item.PId)}" value="delete"/>
+                      </h:column><!-- comment -->
+                      
+                        <h:column>
+                      <f:facet name="header">Update </f:facet>
+                      <!--<h:graphicImage library="images" class="rounded mr-3" height="40" width="50" name="#{item.image}"/>-->
+                        <h:commandButton class="btn btn-az-primary" id="btn_edit" action="#{productJSFManagedBean.editproduct(item.PId)}" value="edit"/>
+                  </h:column>
+                      
+                
+               
+            </h:dataTable>
+          </div>
+          </div>
+          
+ </h:form>
+
+          
+          
+       
+
+         
+        </div><!-- az-content-body -->
+      </div><!-- container -->
+    </div><!-- az-content -->
+
+                 
+        
+    </h:body>
+    
+    
+    
+</html>
+

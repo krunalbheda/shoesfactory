@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+         <meta name="description" content="Responsive Bootstrap 4 Dashboard Template" />
+
+    </h:head>
+    
+    <h:body>
+
+
+    
+   <ui:insert name = "header" >
+      <ui:include src = "header.xhtml" />
+   </ui:insert> 
+    
+    <div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
+      <div class="container">
+        <div class="az-content-left az-content-left-components">
+          <div class="component-item">
+              
+                 <ui:insert name = "header" >
+                   <ui:include src = "sidebar.xhtml" />
+              </ui:insert> 
+<!--        
+            <label>Products</label>
+            <nav class="nav flex-column">
+              <a href="Brand.xhtml" class="nav-link">Brand</a>
+              <a href="Category.xhtml" class="nav-link">Category</a>
+              <a href="Subcategory.xhtml" class="nav-link">Subcategory</a>
+              <a href="Product.xhtml" class="nav-link">Product</a>
+            </nav>
+            <label>Customer</label>
+            <nav class="nav flex-column">
+              <a href="User.xhtml" class="nav-link">Users </a>
+               <a href="Admin.xhtml" class="nav-link">Admin </a>
+            </nav>
+            <label>Role</label>
+            <nav class="nav flex-column">
+              <a href="Roles.xhtml" class="nav-link">Roles</a>
+            </nav>
+
+            <label>Tables</label>
+            <nav class="nav flex-column">
+              <a href="table-basic.html" class="nav-link">Basic Tables</a>
+            </nav>-->
+          </div><!-- component-item -->
+
+        </div><!-- az-content-left -->
+       
+        
+        <div class="az-content-body pd-lg-l-40 d-flex flex-column">
+         
+            
+            
+         
+          <h2 class="az-content-title">Order</h2>
+
+          
+ <h:form id="form" enctype="multipart/form-data">
+          
+        
+             
+          <div class="card">
+          <div class="table-responsive">
+              <h:dataTable value="#{orderJSFManagedBean.showorder()}" var="item" class="table table-hover mg-b-0">
+         <!--<h:dataTable value="{productJSFManagedBean.listByName()}" var="item" class="table table-hover mg-b-0">-->
+
+                  <h:column>
+                      <f:facet name="header"> Id</f:facet>
+                      #{item.OId}
+                  </h:column>
+                  
+                    
+                    <h:column>
+                      <f:facet name="header">User-Name </f:facet>
+                      #{item.userId.firstName}
+                  </h:column>
+                  
+                  <h:column>
+                      <f:facet name="header">E-mail </f:facet>
+                      #{item.userId.email}
+                  </h:column>
+                 
+                   <h:column>
+                      <f:facet name="header">Product-Name </f:facet>
+                      #{item.PId.PName}
+                   </h:column><!-- comment -->
+                   
+                    <h:column>
+                      <f:facet name="header">Product-img </f:facet>
+                      <img src="/shoesfactory/templet/Admin/uploads/#{item.PId.image}" height="50" width="50"/>
+                    </h:column><!-- comment -->
+                   
+                 <h:column>
+                      <f:facet name="header">Stutus </f:facet>
+                      #{item.status}
+                  </h:column>
+                    
+                    
+            </h:dataTable>
+          </div>
+          </div>
+          
+ </h:form>
+
+          
+          
+       
+
+         
+        </div><!-- az-content-body -->
+      </div><!-- container -->
+    </div><!-- az-content -->
+
+                 
+        
+    </h:body>
+    
+    
+    
+</html>
+

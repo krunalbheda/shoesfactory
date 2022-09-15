@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+         <ui:insert name = "header" >
+      <ui:include src = "header.xhtml" />
+   </ui:insert> 
+    
+    <div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
+      <div class="container">
+        <div class="az-content-left az-content-left-components">
+          <div class="component-item">
+                 <ui:insert name = "header" >
+                   <ui:include src = "sidebar.xhtml" />
+              </ui:insert> 
+<!--            <label>Products</label>
+            <nav class="nav flex-column">
+              <a href="Brand.xhtml" class="nav-link">Brand</a>
+              <a href="Category.xhtml" class="nav-link">Category</a>
+              <a href="Subcategory.xhtml" class="nav-link">Subcategory</a>
+              <a href="Product.xhtml" class="nav-link">Product</a>
+            </nav>
+            <label>Customer</label>
+            <nav class="nav flex-column">
+              <a href="User.xhtml" class="nav-link">Users </a>
+               <a href="Admin.xhtml" class="nav-link">Admin </a>
+            </nav>
+            <label>Role</label>
+            <nav class="nav flex-column">
+              <a href="Roles.xhtml" class="nav-link">Roles</a>
+            </nav>
+
+            <label>Tables</label>
+            <nav class="nav flex-column">
+              <a href="table-basic.html" class="nav-link">Basic Tables</a>
+            </nav>-->
+          </div><!-- component-item -->
+
+        </div><!-- az-content-left -->
+       
+        
+        <div class="az-content-body pd-lg-l-40 d-flex flex-column">
+         
+            
+            
+         
+          <h2 class="az-content-title">Admin </h2>
+
+  <h:form id="form">
+            
+           
+      <h:inputHidden id="bid" value="#{usersJSFManagedBean.uid}"/>
+           
+                
+           
+            <br class="">                
+            <label>Search &nbsp;</label>
+            <h:inputText value="#{usersJSFManagedBean.ufname}" id="sf"></h:inputText>&nbsp;
+            <h:commandButton value="search" class="btn btn-primary" action="#{usersJSFManagedBean.getuserfhname(usersJSFManagedBean.ufname)}"></h:commandButton>
+            &nbsp;<br/>
+            </br>
+                <div class="card">
+           <div class="table-responsive">
+               <h:dataTable value="#{usersJSFManagedBean.listByName()}" var="item"  class="table table-hover mg-b-0">
+                  <h:column>
+                      <f:facet name="header"> Id</f:facet>
+                      #{item.userId}
+                  </h:column>
+                  
+                  <h:column>
+                      <f:facet name="header">F-Name </f:facet>
+                      #{item.firstName}
+                  </h:column>
+                    
+                    <h:column>
+                      <f:facet name="header">l-Name </f:facet>
+                      #{item.lastName}
+                  </h:column>
+                 
+                        <h:column>
+                      <f:facet name="header">Email </f:facet>
+                      #{item.email}
+                    </h:column><!-- comment -->
+                    
+                    <h:column>
+                      <f:facet name="header">Password </f:facet>
+                      #{item.password}
+                  </h:column>
+                    
+                      
+                 <h:column>
+                      <f:facet name="header">Role </f:facet>
+                      #{item.roleId.roleName}
+                  </h:column>
+               
+                  
+              </h:dataTable>
+           </div>
+                </div>
+            
+        
+            </h:form>    
+            </div><!-- az-content-body -->
+      </div><!-- container -->
+    </div><!-- az-content -->
+    </h:body>
+</html>
+

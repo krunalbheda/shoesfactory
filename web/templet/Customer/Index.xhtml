@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link href="../templet/Resources/js/script.js" rel="stylesheet" />
+        <link href="../templet/Resources/lib/fontawesome-free/css/all.min.css" rel="stylesheet" />
+        <link href="../templet/templet/Resources/lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
+        <link href="../templet/Resources/lib/typicons.font/typicons.css" rel="stylesheet" />
+        <link href="../templet/Resources/lib/flag-icon-css/css/flag-icon.min.css" rel="stylesheet" />
+        <link href="../templet/Resources/lib/fontawesome-free/css/all.min.css" rel="stylesheet" />
+        <link href="../templet/Resources/lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
+        <link href="../templet/Resources/lib/typicons.font/typicons.css" rel="stylesheet" />
+        <link href="../templet/Resources/lib/spectrum-colorpicker/spectrum.css" rel="stylesheet" />
+        <link href="../templet/Resources/lib/select2/css/select2.min.css" rel="stylesheet" />
+        <link href="../templet/Resources/lib/ion-rangeslider/css/ion.rangeSlider.css" rel="stylesheet" />
+        <link href="../templet/Resources/lib/ion-rangeslider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet" />
+        <link href="../templet/Resources/lib/amazeui-datetimepicker/css/amazeui.datetimepicker.css" rel="stylesheet" />
+        <link href="../templet/Resources/lib/jquery-simple-datetimepicker/jquery.simple-dtpicker.css" rel="stylesheet" />
+        <link href="../templet/Resources/lib/pickerjs/picker.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="../templet/Resources/css/azia.css" />
+ <style>
+                            body {
+                                background-image: url('../Resources/img/bgg.jpg');
+                                background-repeat: no-repeat;
+                                background-attachment: fixed;
+                                background-size: cover;
+                                background-position: 50% 50%;
+        
+                            }
+                        </style>
+
+      
+
+
+        <!-- Custom styles for this template -->
+
+    </h:head>
+    <h:body>
+
+
+        <h:form id="form" enctype="multipart/form-data">
+
+            <ui:insert name = "header" >
+                <ui:include src = "../Common/header.xhtml" />
+            </ui:insert> 
+            <div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
+                <div class="container">
+                    <div class="az-content-left az-content-left-components">
+                        <div class="component-item">
+
+                            <div class="row row-sm">
+
+                                <div class="row row-sm">
+
+                                    <div class="mee2">
+                                        <label>Search: &nbsp;</label>
+                                        <h:inputText value="#{productJSFManagedBean.pname}" class="" style="font-size:15px;"  id="sf"></h:inputText>&nbsp;
+
+                                    </div><!-- col -->
+                                </div>
+                                <div class="">                
+                                    <br/>
+                                </div>
+                                <h:outputLabel for=""><br/><br/>Brand :&nbsp;</h:outputLabel>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="col-lg">
+                                    <h:selectOneMenu value="#{productJSFManagedBean.bid}">
+                                        <f:selectItems value="#{productJSFManagedBean.showbrand()}" var="brand" itemValue="#{brand.BId}" itemLabel="#{brand.BName}"/> 
+                                    </h:selectOneMenu>
+                                </div><!-- col -->
+                            </div>
+
+                            <div class="row row-sm">
+                                <h:outputLabel for=""><br/><br/>Category :&nbsp; </h:outputLabel>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+
+                                <div class="col-lg">
+
+                                    <h:selectManyCheckbox value="#{productJSFManagedBean.cid}">
+                                        <f:selectItems value="#{productJSFManagedBean.showcategory()}" var="cat" itemValue="#{cat.CId}" itemLabel="#{cat.CName}"/> 
+                                    </h:selectManyCheckbox>
+                                </div><!-- col -->
+                            </div>
+                            <div class="row row-sm">
+                                <h:outputLabel for=""><br/><br/>Subcategory :<br/> &nbsp;</h:outputLabel>&nbsp;&nbsp;
+                                <div class="col-lg">
+
+                                    <h:selectManyListbox value="#{productJSFManagedBean.scid}">
+                                  <br/><br/>    <f:selectItems value="#{productJSFManagedBean.showsubcategory()}" var="sc" itemValue="#{sc.scId}" itemLabel="#{sc.scName}"/> 
+                                    </h:selectManyListbox>
+                                </div><!-- col -->
+                            </div><br/>
+
+                            <div class="row row-sm">
+                                <h:outputLabel for=""><br/><br/>Price Range : &nbsp;</h:outputLabel>&nbsp;&nbsp;
+                                <div class="col-lg">
+
+                                    <h:selectOneMenu >
+                                        <f:selectItem itemValue="1" itemLabel=" 0-999/-" />
+                                        <f:selectItem itemValue="2" itemLabel="1000-5999/-" />
+                                        <f:selectItem itemValue="3" itemLabel="6000/- more then" />
+                                    </h:selectOneMenu>
+                                </div><!-- col -->
+                            </div><br/>
+
+
+                            <br/>
+
+
+                            <h:commandButton value="search" class="btn btn-primary" action="#{productJSFManagedBean.getproducthname(productJSFManagedBean.pname)}"></h:commandButton>
+
+                            <ui:insert name = "header" >
+                                <!--<ui:include src = "../Common/sidebar.xhtml" />-->
+                            </ui:insert> 
+
+                        </div><!-- component-item -->
+
+                    </div><!-- az-content-left -->
+
+
+                    <div class="az-content-body pd-lg-l-40 d-flex flex-column">
+
+
+
+
+                        <h2 class="az-content-title">Featured Products </h2>
+
+
+
+
+                        <div class="card">
+                            <div class="table-responsive">
+                                <h:dataTable value="#{productJSFManagedBean.showproduct()}" var="item" class="table table-hover mg-b-0">
+
+<!--<h:dataTable value="#{productJSFManagedBean.listByName()}" var="item" class="table table-hover mg-b-0">-->
+
+                                    <!--                        <h:column>
+                                                                <f:facet name="header"> Id</f:facet>
+                                    #{item.PId}
+                            </h:column>
+    
+                            <h:column>
+                                <f:facet name="header">Brand-Name </f:facet>
+                                    #{item.BId.BName}
+                            </h:column>
+    
+                            <h:column>
+                                <f:facet name="header">Cat-Name </f:facet>
+                                    #{item.CId.CName}
+                            </h:column>
+    
+                            <h:column>
+                                <f:facet name="header">Subcat-Name. </f:facet>
+                                    #{item.scId.scName}
+                            </h:column>
+    
+                            <h:column>
+                                <f:facet name="header">Product-name </f:facet>
+                                    #{item.PName}
+                            </h:column> comment 
+    
+                            <h:column>
+                                <f:facet name="header">Product-desc </f:facet>
+                                    #{item.PDescription}
+                            </h:column>
+    
+    
+                            <h:column>
+                                <f:facet name="header">price </f:facet>
+                                    #{item.price}
+                            </h:column>
+    
+                            <h:column>
+                                <f:facet name="header">Img </f:facet>
+                                <h:graphicImage library="images" class="rounded mr-3" height="40" width="50" name="#{item.image}"/>
+                                <img src="/shoesfactory/templet/Admin/uploads/#{item.image}" height="50" width="50"/>
+                            </h:column>
+    
+                            <h:column>
+                                <f:facet name="header">Delete </f:facet>
+                                <h:graphicImage library="images" class="rounded mr-3" height="40" width="50" name="#{item.image}"/>
+                                <h:commandButton class="btn btn-az-primary" id="btn_delete" action="#{productJSFManagedBean.deleteproduct(item.PId)}" value="delete"/>
+                            </h:column> comment 
+    
+                            <h:column>
+                                <f:facet name="header">Update </f:facet>
+                                <h:graphicImage library="images" class="rounded mr-3" height="40" width="50" name="#{item.image}"/>
+                                <h:commandButton class="btn btn-az-primary" id="btn_edit" action="#{productJSFManagedBean.editproduct(item.PId)}" value="edit"/>
+                            </h:column>-->
+
+
+
+                                </h:dataTable>
+                            </div>
+                        </div>
+
+
+
+
+                        <div id="products">
+                            <h2></h2>
+                            <c:forEach var="product" items="#{productJSFManagedBean.showproduct()}" begin="0" end ="14" varStatus="counter">
+                                <div class="product" style="display:inline-block">
+
+                                    <div class="my-2 mx-1 card" style="width: 18rem;">
+                                        <img src="/shoesfactory/templet/Admin/uploads/#{product.image}" height="250" width="400"/>
+
+                        <!--<img class="card-img-top" src="css/images//shoesfactory/templet/Admin/uploads/#{product.image}" height="500" width="500" alt="Card image cap"/>-->
+                                        <div class="card-body">
+                                            <h5 class="card-title">#{product.PName}</h5>
+
+                                            <p class="card-text">#{product.PDescription}Some quick up the bulk of the card's content.</p>
+                                            <a> <i style="font-size:20px" class="fa">&#xf156;</i>&nbsp;#{product.price}/-</a>
+                                            <br/>
+                                            <!--<a href="#" class="btn btn-primary">Add to Cart </a>-->
+<!--                                              <h:form>-->
+                                                    <h:commandLink action="${cartJSFManagedBean.addToCart(product)}" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</h:commandLink>
+                                                    <!--<h:commandLink action="{shop.productDetail(r)}" class="view-details-link"><i class="fa fa-link"></i> See details</h:commandLink>-->
+                                                <!--</h:form>-->
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <c:if test="#{counter.count%5==0}">
+                                    <div class="cl">&nbsp;</div>   
+                                </c:if>
+                            </c:forEach>
+
+                            <div class="cl">&nbsp;</div>
+                        </div>
+
+
+                    </div><!-- az-content-body -->
+                </div><!-- container -->
+            </div><!-- az-content -->
+        </h:form>
+
+
+
+    </h:body>
+</html>
+

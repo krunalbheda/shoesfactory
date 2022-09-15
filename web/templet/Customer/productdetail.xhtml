@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+         <meta name="description" content="Responsive Bootstrap 4 Dashboard Template" />
+
+    </h:head>
+    <style>
+                            body {
+                                background-image: url('../Resources/img/bgg.jpg');
+                                background-repeat: no-repeat;
+                                background-attachment: fixed;
+                                background-size: cover;
+                                background-position: 50% 50%;
+        
+                            }
+                        </style>
+    
+    <h:body>
+
+
+    
+   <ui:insert name = "header" >
+      <ui:include src = "../Common/header.xhtml" />
+   </ui:insert> 
+    
+    <div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
+      <div class="container">
+     
+        
+        <div class="az-content-body pd-lg-l-40 d-flex flex-column">
+         
+            
+            
+         
+          <h2 class="az-content-title">Cart :-</h2>
+
+          
+ <h:form id="form" enctype="multipart/form-data">
+         
+        
+          
+<!--          <br class="">                
+            <label>Search &nbsp;</label>
+            <h:inputText value="{productJSFManagedBean.pname}" id="sf"></h:inputText>&nbsp;
+            <h:commandButton value="search" class="btn btn-primary" action="{productJSFManagedBean.getproducthname(productJSFManagedBean.pname)}"></h:commandButton>
+            &nbsp;<br/>
+            </br>-->
+          <div class="card">
+          <div class="table-responsive">
+              <!--<h:dataTable value="#{productJSFManagedBean.showproduct()}" var="item" class="table table-hover mg-b-0">-->
+         <h:dataTable value="#{cartJSFManagedBean.cartlist}" var="item" class="table table-hover mg-b-0">
+
+                   <h:column>
+                      <f:facet name="header">Img </f:facet>
+                      <!--<h:graphicImage library="images" class="rounded mr-3" height="40" width="50" name="{item.image}"/>-->
+                      <img src="/shoesfactory/templet/Admin/uploads/#{item.PId.image}" height="70" width="70"/>
+                  </h:column>
+                    
+                  
+                    
+                    <h:column>
+                      <f:facet name="header">Product-name </f:facet>
+                      #{item.PId.PName}
+                    </h:column> 
+                    
+                   
+                      
+                 <h:column>
+                      <f:facet name="header">price </f:facet>
+                      #{item.PId.price}
+                  </h:column>
+                    
+                   
+                           
+                 <h:column>
+                      <f:facet name="header">qty </f:facet>
+                      <h:inputText value="#{item.qty}" class="" style="font-size:20px;height: 40px; width: 40px; "  id="sf"></h:inputText>&nbsp;
+
+                    
+                  </h:column>
+                    
+                    <h:column>
+                      <f:facet name="header">Add To Cart </f:facet>
+                      <h:commandButton class="btn btn-az-primary" action="#{cartJSFManagedBean.addToCart(item.product)}" id="btn_update" value="Add"/>
+
+
+                  </h:column>
+                 <h:column>
+                      <f:facet name="header">Remove </f:facet>
+                      <h:commandButton class="btn btn-az-primary" action="#{cartJSFManagedBean.removeCart(item.cartId)}" id="btn_update" value="Remove"/>
+
+                  </h:column>
+                
+               
+            </h:dataTable>
+               </div>
+          </div><!-- comment -->
+          
+          
+              <br/>
+                    <div class="card">
+                <div class="row">
+                    <div class="col-xl-4 col-md-6">
+                        <div class="  mb-4">
+                            <div class="card-body text-center">
+
+                                <i class="feather icon-mail bg-primary ui-rounded-icon"></i>
+
+                                <h4 class="mt-2"><span class="text-primary">Total :-</span> 
+                                    <i style="font-size:20px" class="fa">&#xf156;</i>
+                                    31999         </h4>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-4 col-md-6">
+                        <div class="mb-4">
+                            <div class="">
+
+                                <i class="feather icon-twitter bg-success ui-rounded-icon"></i>
+                                <h4 class="mt-2"><span class="text-success"></span> </h4>
+                                <p class="mb-3"></p>
+                                <a href="" class=""></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4 col-md-6">
+
+                        <div class="mb-4">
+
+                            <div class="card-body text-right">
+                                <!--<svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>-->
+
+                                <i class="feather icon-shopping-cart bg-warning ui-rounded-icon"></i>
+                                 <a href="Product.xhtml" class="btn btn-primary btn-sm btn-round">Go to checkOut</a>
+                                
+                               
+                           
+                        </div>
+                    </div>
+
+
+                </div>
+
+              </div>
+          </div>
+          
+          
+ </h:form>
+
+          
+          
+       
+
+         
+        </div><!-- az-content-body -->
+      </div><!-- container -->
+    </div><!-- az-content -->
+
+                 
+        
+    </h:body>
+    
+    
+    
+</html>
+

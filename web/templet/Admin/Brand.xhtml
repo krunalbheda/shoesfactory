@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <meta name="description" content="Responsive Bootstrap 4 Dashboard Template" />
+        <!--    <meta name="author" content="BootstrapDash" />
+            <link href="../Resources/lib/fontawesome-free/css/all.min.css" rel="stylesheet" />
+            <link href="../Resources/lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
+            <link href="../Resources/lib/typicons.font/typicons.css" rel="stylesheet" />
+            <link href="../Resources/lib/flag-icon-css/css/flag-icon.min.css" rel="stylesheet" />
+            <link href="../Resources/lib/fontawesome-free/css/all.min.css" rel="stylesheet" />
+            <link href="../Resources/lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
+            <link href="../Resources/lib/typicons.font/typicons.css" rel="stylesheet" />
+            <link href="../Resources/lib/spectrum-colorpicker/spectrum.css" rel="stylesheet" />
+            <link href="../Resources/lib/select2/css/select2.min.css" rel="stylesheet" />
+            <link href="../Resources/lib/ion-rangeslider/css/ion.rangeSlider.css" rel="stylesheet" />
+            <link href="../Resources/lib/ion-rangeslider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet" />
+            <link href="../Resources/lib/amazeui-datetimepicker/css/amazeui.datetimepicker.css" rel="stylesheet" />
+            <link href="../Resources/lib/jquery-simple-datetimepicker/jquery.simple-dtpicker.css" rel="stylesheet" />
+            <link href="../Resources/lib/pickerjs/picker.min.css" rel="stylesheet" />
+        
+             azia CSS 
+            <link rel="stylesheet" href="../Resources/css/azia.css" />-->
+    </h:head>
+
+    <h:body>
+
+
+
+        <ui:insert name = "header" >
+            <ui:include src = "header.xhtml" />
+        </ui:insert> 
+        <div class="background">
+            <div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
+                <div class="container">
+
+                    <div class="az-content-left az-content-left-components">
+                        <div class="component-item">
+                            <ui:insert name = "header" >
+                                <ui:include src = "sidebar.xhtml" />
+                            </ui:insert> 
+                            <!--            <label>Products</label>
+                                        <nav class="nav flex-column">
+                                          <a href="Brand.xhtml" class="nav-link">Brand</a>
+                                          <a href="Category.xhtml" class="nav-link">Category</a>
+                                          <a href="Subcategory.xhtml" class="nav-link">Subcategory</a>
+                                          <a href="Product.xhtml" class="nav-link">Product</a>
+                                        </nav>
+                                        <label>Customer</label>
+                                        <nav class="nav flex-column">
+                                           <a href="User.xhtml" class="nav-link">Users </a>
+                                           <a href="Admin.xhtml" class="nav-link">Admin </a>
+                                        </nav>
+                                        <label>Role</label>
+                                        <nav class="nav flex-column">
+                                          <a href="Roles.xhtml" class="nav-link">Roles</a>
+                                        </nav>
+                            
+                                        <label>Tables</label>
+                                        <nav class="nav flex-column">
+                                          <a href="table-basic.html" class="nav-link">Basic Tables</a>
+                                        </nav>-->
+                        </div><!-- component-item -->
+
+                    </div><!-- az-content-left -->
+
+
+                    <div class="az-content-body pd-lg-l-40 d-flex flex-column">
+
+
+
+                        <h2 class="az-content-title">Brand</h2>
+
+
+                        <h:form>
+                            <div class="row row-sm">
+                                Brand Name : 
+                                <div class="col-lg">
+
+                                    <h:inputText id="Brand" class="form-control" value="#{brandJSFManagedBean.bname}"></h:inputText>
+                                </div><!-- col -->
+
+                                <div class="col-lg">
+                                    <h:commandButton class="btn btn-az-primary" action="#{brandJSFManagedBean.insertbrand()}" value="Insert"></h:commandButton>&nbsp;
+                                    <h:commandButton class="btn btn-az-primary"  id="btn_update"  action="#{brandJSFManagedBean.updatebrand()}" value="update"/>
+                                </div><!-- col -->
+
+
+                                <br /><br/>
+                                <br /><br/>
+                            </div><!-- row -->
+<!--                            <br class="">                
+                                <label>Search &nbsp;</label>
+                                <h:inputText value="#{brandJSFManagedBean.bname}" id="sf"></h:inputText>&nbsp;
+                                <h:commandButton value="search" class="btn btn-primary" action="#{brandJSFManagedBean.getbrandhname(brandJSFManagedBean.bname)}"></h:commandButton>
+                                &nbsp;<br/>
+                            </br>-->
+                                
+                            <h:inputHidden id="bid" value="#{usersJSFManagedBean.uid}"/>
+                            <div class="card">
+                                <div class="table-responsive">
+                                    <h:dataTable var="d" value="#{brandJSFManagedBean.showbrand()}" class="table table-hover mg-b-0">
+                                    <!--<h:dataTable var="d" value="#{brandJSFManagedBean.listByName()}" class="table table-hover mg-b-0">-->
+
+                                            <h:column>
+                                                <f:facet name="header" >Id</f:facet>
+                                                <h:outputText value="#{d.BId}"></h:outputText>
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header" >Brand Name</f:facet>
+                                                <h:outputText value="#{d.BName}"></h:outputText>
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header" >
+                                                    <h:outputText value="Delete"></h:outputText>
+                                                </f:facet>
+
+
+                                                <h:commandButton class="btn btn-az-primary" value="delete" action="#{brandJSFManagedBean.deletebrand(d.BId)}" onclick="return confirm('Are you sure to delete')">
+                                                </h:commandButton>
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header" >
+                                                    <h:outputText value="Update"></h:outputText>
+                                                </f:facet>
+                                                <h:commandButton class="btn btn-az-primary" value="Update" action="#{brandJSFManagedBean.editbrand(d.BId)}"></h:commandButton>
+                                            </h:column>
+                                        </h:dataTable>
+                                </div>
+                            </div>
+
+                        </h:form>
+
+
+
+
+
+
+                    </div><!-- az-content-body -->
+                </div><!-- container -->
+            </div><!-- az-content -->
+
+
+        </div>
+    </h:body>
+
+
+
+</html>
+

@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <meta name="description" content="Responsive Bootstrap 4 Dashboard Template" />
+        <!--    <meta name="author" content="BootstrapDash" />
+            <link href="../Resources/lib/fontawesome-free/css/all.min.css" rel="stylesheet" />
+            <link href="../Resources/lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
+            <link href="../Resources/lib/typicons.font/typicons.css" rel="stylesheet" />
+            <link href="../Resources/lib/flag-icon-css/css/flag-icon.min.css" rel="stylesheet" />
+            <link href="../Resources/lib/fontawesome-free/css/all.min.css" rel="stylesheet" />
+            <link href="../Resources/lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
+            <link href="../Resources/lib/typicons.font/typicons.css" rel="stylesheet" />
+            <link href="../Resources/lib/spectrum-colorpicker/spectrum.css" rel="stylesheet" />
+            <link href="../Resources/lib/select2/css/select2.min.css" rel="stylesheet" />
+            <link href="../Resources/lib/ion-rangeslider/css/ion.rangeSlider.css" rel="stylesheet" />
+            <link href="../Resources/lib/ion-rangeslider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet" />
+            <link href="../Resources/lib/amazeui-datetimepicker/css/amazeui.datetimepicker.css" rel="stylesheet" />
+            <link href="../Resources/lib/jquery-simple-datetimepicker/jquery.simple-dtpicker.css" rel="stylesheet" />
+            <link href="../Resources/lib/pickerjs/picker.min.css" rel="stylesheet" />
+        
+             azia CSS 
+            <link rel="stylesheet" href="../Resources/css/azia.css" />-->
+    </h:head>
+
+    <h:body>
+
+
+
+        <ui:insert name = "header" >
+            <ui:include src = "header.xhtml" />
+        </ui:insert> 
+        <div class="background">
+            <div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40">
+                <div class="container">
+
+                    <div class="az-content-left az-content-left-components">
+                        <div class="component-item">
+                            <ui:insert name = "header" >
+                                <ui:include src = "sidebar.xhtml" />
+                            </ui:insert> 
+
+                        </div><!-- component-item -->
+
+                    </div><!-- az-content-left -->
+
+
+                    <div class="az-content-body pd-lg-l-40 d-flex flex-column">
+
+
+                   
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6">
+                                <div class="card  mb-4">
+                                    <div class="card-body text-center">
+                                        <i class="feather icon-mail bg-primary ui-rounded-icon"></i>
+                                        <h4 class="mt-2"><span class="text-primary">#{adminIndex.countuser()}</span> User</h4>
+                                        <p class="mb-3">Your main list is growing</p>
+                                        <a href="User.xhtml" class="btn btn-primary btn-sm btn-round">Go to List</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                                <div class="card  mb-4">
+                                    <div class="card-body text-center">
+                                        <i class="feather icon-twitter bg-success ui-rounded-icon"></i>
+                                        <h4 class="mt-2"><span class="text-success">#{adminIndex.countorder()}</span> Order</h4>
+                                        <p class="mb-3">Your main list is growing</p>
+                                        <a href="order.xhtml" class="btn btn-success btn-sm btn-round">Check them out</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-4 col-md-6">
+                                <div class="card  mb-4">
+                                    <div class="card-body text-center">
+                                        <i class="feather icon-shopping-cart bg-warning ui-rounded-icon"></i>
+                                        <h4 class="mt-2"><span class="text-warning">#{adminIndex.countproduct()}</span> Product</h4>
+                                        <p class="mb-3">Your main list is growing</p>
+                                        <a href="Product.xhtml" class="btn btn-warning btn-sm btn-round text-white">Go to Product</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-4 col-md-6">
+                                <div class="card  mb-4">
+                                    <div class="card-body text-center">
+                                        <i class="feather icon-shopping-cart bg-warning ui-rounded-icon"></i>
+                                        <h4 class="mt-2"><span class="text-warning">#{adminIndex.countbrand()}</span> Brand</h4>
+                                        <p class="mb-3">Your main list is growing</p>
+                                        <a href="Brand.xhtml" class="btn btn-warning btn-sm btn-round text-white">Go to List</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-xl-4 col-md-6">
+                                <div class="card  mb-4">
+                                    <div class="card-body text-center">
+                                        <i class="feather icon-mail bg-primary ui-rounded-icon"></i>
+                                        <h4 class="mt-2"><span class="text-primary">#{adminIndex.countcat()}</span> Category</h4>
+                                        <p class="mb-3">Your main list is growing</p>
+                                        <a href="Category.xhtml" class="btn btn-primary btn-sm btn-round">Go to List</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-xl-4 col-md-6">
+                                <div class="card  mb-4">
+                                    <div class="card-body text-center">
+                                        <i class="feather icon-shopping-cart bg-success ui-rounded-icon"></i>
+                                        <h4 class="mt-2"><span class="text-success">#{adminIndex.countsubcat()}</span> Subcategory</h4>
+                                        <p class="mb-3">Your main list is growing</p>
+                                        <a href="Subcategory.xhtml" class="btn btn-success btn-sm btn-round">Go to List</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-xl-4 col-md-6">
+                                <div class="card  mb-4">
+                                    <div class="card-body text-center">
+                                        <i class="feather icon-shopping-cart bg-primary ui-rounded-icon"></i>
+                                        <h4 class="mt-2"><span class="text-primary">#{adminIndex.countroles()}</span> Roles</h4>
+                                        <p class="mb-3">Your main list is growing</p>
+                                        <a href="Roles.xhtml" class="btn btn-primary btn-sm btn-round text-white">Go to List</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+
+                    </div><!-- az-content-body -->
+                </div><!-- container -->
+            </div><!-- az-content -->
+
+
+        </div>
+    </h:body>
+
+
+
+</html>
+
